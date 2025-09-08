@@ -1,0 +1,144 @@
+{
+  "info": {
+    "name": "Capital.com Public API \u2013 Quick Collection",
+    "_postman_id": "c3778a3b-9f9b-4d11-a1b2-000000000001",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Login (POST /session)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-CAP-API-KEY",
+            "value": "{{API_KEY}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{BASE_URL}}/session",
+          "host": [
+            "{{BASE_URL}}"
+          ],
+          "path": [
+            "session"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"identifier\": \"{{IDENTIFIER}}\", \"password\": \"{{API_PASSWORD}}\", \"encryptedPassword\": false}"
+        }
+      }
+    },
+    {
+      "name": "Markets Search (GET /markets?searchTerm=NVDA)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-CAP-API-KEY",
+            "value": "{{API_KEY}}"
+          },
+          {
+            "key": "CST",
+            "value": "{{CST}}"
+          },
+          {
+            "key": "X-SECURITY-TOKEN",
+            "value": "{{SEC}}"
+          }
+        ],
+        "url": {
+          "raw": "{{BASE_URL}}/markets?searchTerm=NVDA",
+          "host": [
+            "{{BASE_URL}}"
+          ],
+          "path": [
+            "markets"
+          ],
+          "query": [
+            {
+              "key": "searchTerm",
+              "value": "NVDA"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Position (POST /api/v1/positions)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-CAP-API-KEY",
+            "value": "{{API_KEY}}"
+          },
+          {
+            "key": "CST",
+            "value": "{{CST}}"
+          },
+          {
+            "key": "X-SECURITY-TOKEN",
+            "value": "{{SEC}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{BASE_URL}}/api/v1/positions",
+          "host": [
+            "{{BASE_URL}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "positions"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"epic\": \"{{EPIC}}\", \"direction\": \"BUY\", \"size\": 1}"
+        }
+      }
+    },
+    {
+      "name": "Confirm (GET /api/v1/confirms/{ref})",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-CAP-API-KEY",
+            "value": "{{API_KEY}}"
+          },
+          {
+            "key": "CST",
+            "value": "{{CST}}"
+          },
+          {
+            "key": "X-SECURITY-TOKEN",
+            "value": "{{SEC}}"
+          }
+        ],
+        "url": {
+          "raw": "{{BASE_URL}}/api/v1/confirms/{{DEAL_REF}}",
+          "host": [
+            "{{BASE_URL}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "confirms",
+            "{{DEAL_REF}}"
+          ]
+        }
+      }
+    }
+  ]
+}
